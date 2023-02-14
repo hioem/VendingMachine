@@ -14,7 +14,7 @@ public class Vendor
     private int stock;
     private int deposit;
     private int change;
-    //make a private static double variable called totalSales that has an initial value of 0
+    //make a private static double variable called totalSales that has an initial value of 0 and stores the amount of money in the machine
 
 
     /**
@@ -25,6 +25,7 @@ public class Vendor
     public Vendor(int price, int stock)
     {
         //You need to complete this using this. notation
+
     }
 
     /**
@@ -106,10 +107,10 @@ public class Vendor
     }
     
     /**
-    * Returns the total number of sales and resets the total number of sales to 0
+    * Returns the total dollars of sales and resets the total dollars of sales to 0
     * Hint: use a temp variable
     *
-    * @return number of sales
+    * @return dollars of sales
     */
     public static double getTotalSales()
     {
