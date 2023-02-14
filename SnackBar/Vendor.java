@@ -1,6 +1,6 @@
 package SnackBar;
 
-import Number42.Coins;
+import Number14.Coins;
 
 /**
  * This class implements a vendor that sells one kind
@@ -14,7 +14,7 @@ public class Vendor
     private int stock;
     private int deposit;
     private int change;
-    //make a private static double variable called totalSales that has an initial value of 0 and stores the amount of money in the machine
+    private static double totalSales=0;
 
 
     /**
@@ -24,19 +24,19 @@ public class Vendor
      */
     public Vendor(int price, int stock)
     {
-        //You need to complete this using this. notation
-
+        this.price=price;
+        this.stock=stock;
     }
 
     /**
      * Sets the quantity of items in stock.
-     * @param qty number of items to place in stock (int)
+     * @param stock qty number of items to place in stock (int)
      */
 
 
     public void setStock(int stock)
     {
-        //You need to complete this using this. notation
+        this.stock=stock;
     }
 
     /**
@@ -45,17 +45,17 @@ public class Vendor
      */
     public int getStock()
     {
-        //complete this
+        return stock;
     }
 
     /**
      * Adds a specified amount (in cents) to the
      * deposited amount.
-     * @param number of cents to add to the deposit (int)
+     * @param d number of cents to add to the deposit (int)
      */
     public void addMoney(int d)
     {
-        //You need to complete this using mutator
+        deposit+=d;
     }
 
     /**
@@ -78,7 +78,15 @@ public class Vendor
      */
     public boolean makeSale()
     {
-        //create the makesale method
+        if(stock>0 && deposit>=price)
+        {
+            stock--;
+            totalSales+=((price)/100.0);
+            change=deposit-price;
+            deposit=0;
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -95,25 +103,17 @@ public class Vendor
 
     public String getChangeString()
     {
-        //From Ethan: create a get method that returns the amount and type of coins that should be returned by the machine
-        /*
-        note that the coin class has a .getQuarters(), a .getDimes() etc etc (use the coin class!)
-        */
-        
+        Coins c= new Coins(change);
 
-        String changeString="";
+        String changeString=""+c.getQuarters()+"q + "+c.getDimes()+"d + "+ c.getNickles()+"n + "+c.getPennies()+"p";
 
         return changeString;
     }
-    
-    /**
-    * Returns the total dollars of sales and resets the total dollars of sales to 0
-    * Hint: use a temp variable
-    *
-    * @return dollars of sales
-    */
+
     public static double getTotalSales()
     {
-        //complete this
+        double t=totalSales;
+        totalSales=0;
+        return t;
     }
 }
