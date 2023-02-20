@@ -5,7 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class VendingMachine extends JPanel
-                            implements ActionListener
+        implements ActionListener
 {
   private static final int FULL_STOCK = 5;
   private JButton deposit25c, deposit10c, deposit5c, go;
@@ -23,7 +23,7 @@ public class VendingMachine extends JPanel
     brandName = brand;
 
     JTextField banner = new JTextField("  " + brandName +
-                                       "  " + price + "c  ");
+            "  " + price + "c  ");
     banner.setEditable(false);
     banner.setFont(new Font("Serif", Font.BOLD, 14));
     banner.setHorizontalAlignment(JTextField.CENTER);
@@ -88,27 +88,27 @@ public class VendingMachine extends JPanel
     else if (b == go)
     {
       trayFull = vendor.makeSale();
-      
-      
+
+
       changeString=vendor.getChangeString();   //added to find the number of coins
       int change = vendor.getChange();
-      
-      
+
+
       if (trayFull)          // Successful sale
       {
         repaint();
-        
+
         JOptionPane.showMessageDialog(null,
-          "Enjoy your " + brandName + "\n" + " Change " + change + "c = " + changeString,   //added to display # of coins
-          "Enjoy " + brandName, JOptionPane.PLAIN_MESSAGE);
+                "Enjoy your " + brandName + "\n" + " Change " + change + "c = " + changeString,   //added to display # of coins
+                "Enjoy " + brandName, JOptionPane.PLAIN_MESSAGE);
         trayFull = false;
-        
+
       }
       else if (change > 0)   // Refund
       {
         JOptionPane.showMessageDialog(null,
-          "Take " + change + "c back",
-          "Money back", JOptionPane.ERROR_MESSAGE);
+                "Take " + change + "c back",
+                "Money back", JOptionPane.ERROR_MESSAGE);
       }
     }
 

@@ -1,6 +1,6 @@
 package SnackBar;
 
-import Number14.Coins;
+import Number42.Coins;
 
 /**
  * This class implements a vendor that sells one kind
@@ -51,11 +51,11 @@ public class Vendor
     /**
      * Adds a specified amount (in cents) to the
      * deposited amount.
-     * @param d number of cents to add to the deposit (int)
+     * @param add number of cents to add to the deposit (int)
      */
-    public void addMoney(int d)
+    public void addMoney(int add)
     {
-        deposit+=d;
+        deposit+=add;
     }
 
     /**
@@ -96,16 +96,16 @@ public class Vendor
      */
     public int getChange()
     {
-        int c=change;
-        change=0;
-        return c;
+        int change1=change;
+        change = 0;
+        return change1;
     }
 
     public String getChangeString()
     {
-        Coins c= new Coins(change);
+        Coins change1= new Coins(change);
 
-        String changeString=""+c.getQuarters()+"q + "+c.getDimes()+"d + "+ c.getNickles()+"n + "+c.getPennies()+"p";
+        String changeString=""+change1.getQuarters()+"q + "+change1.getDimes()+"d + "+ change1.getNickles()+"n + "+change1.getPennies()+"p";
 
         return changeString;
     }
